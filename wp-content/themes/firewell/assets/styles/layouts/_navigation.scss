@@ -1,0 +1,174 @@
+//--------------------------------------------------------------
+// Navigation
+//--------------------------------------------------------------
+
+// Links
+
+a {
+	color: $link-color;
+
+	&:visited {
+		color: $link-color-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $link-color-hover;
+	}
+}
+
+@media only screen and (min-width : 980px) {
+      
+
+	.menu {
+		margin: 0 auto;
+		padding: 0;
+	
+		list-style: none;
+	
+		li {
+			margin: 0 10px 0 0;
+		}
+	
+		ul {
+			margin: 0;
+			padding: 0;
+	
+			list-style: none;
+		}
+	
+		
+		display: inline-block;
+		
+		&.dropdown {
+		
+			// Sub-menu
+			ul {
+				left: -999em;
+				position: absolute;
+				top: 100%;
+				z-index: 99999;
+		
+				// Sub-sub menu
+				ul {
+					left: -999em;
+					top: 0;
+				}
+		
+				// Sub-menu items
+				li {
+		
+					&:hover > ul,
+					&.focus > ul {
+						left: 100%;
+					}
+				}
+		
+				// Sub-menu links
+				a {
+					
+					height: auto;
+				}
+		
+				:hover > a,
+				.focus > a {
+				}
+		
+				a:hover,
+				a.focus {
+				}
+			}
+		
+			// Display sub-menu on hover
+			li:hover > ul,
+			li.focus > ul {
+				width: 170px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		
+			// Menu items
+			li {
+				//float: left;
+				position: relative;
+		
+				&:hover > a,
+				&.focus > a {
+				}
+			}
+		}
+		
+		
+	
+		// Menu hyperlinks
+		li a {
+			display: block;
+			text-decoration: none;
+		}
+	
+		// Current items
+		.current_page_item a,
+		.current-menu-item a {
+		}
+	}
+
+}
+
+
+// Main navigation (after creating a menu in the dashboard)
+.main-navigation {
+
+	
+	// Sublevels
+	.sub-menu {
+		
+		> .menu-item {
+			display: block;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			
+		
+			a {
+				
+				
+				&:hover {
+					background: $green;
+					
+				}
+				
+				
+			}
+		}
+	
+		.sub-menu {}
+	}
+
+	
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 24px 0;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		width: 50%;
+		height: auto;
+
+		float: left;
+	}
+
+	& .nav-next {
+		width: 50%;
+		height: auto;
+
+		float: right;
+		text-align: right;
+	}
+}

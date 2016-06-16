@@ -1,0 +1,55 @@
+//--------------------------------------------------------------
+// Content
+//--------------------------------------------------------------
+
+input[type="search"] {
+	 @include box-sizing(border-box);
+}
+
+a {
+	outline: none!important;	
+	
+	&:focus {
+		outline: none!important;	
+	}
+}
+
+.no-wrap-block { white-space: nowrap; }
+
+.entry-content {
+
+	p {
+		margin-bottom: $paragraph-margin-bottom;
+	}
+	
+	ul, ol {
+		margin-bottom: 13px;	
+	}
+	
+	ul, ol {
+			
+		li {			
+			
+			list-style-position: outside;
+			margin-bottom: 0px;
+			
+			ul {
+				margin-bottom: 0;	
+			}
+		}
+	}
+	
+	ul:not([class]) {
+		margin-left: 21px;
+	}
+	
+	ol li {
+		list-style-type: decimal;
+	}
+
+	
+	li, p {
+		line-height: $paragraph-line-height;
+	}
+	
+}

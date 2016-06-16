@@ -1,0 +1,77 @@
+//--------------------------------------------------------------
+// Typography
+//--------------------------------------------------------------
+
+html {
+	font-size: 100%;	
+}
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+  margin: 0;
+  padding: 0; 
+}
+
+body {
+	font-family: $paragraph-font-family;
+	font-style: normal;
+	font-weight: $paragraph-font-weight;
+	font-size: $paragraph-font-size;
+	color: $paragraph-font-color;
+	-webkit-font-smoothing: antialiased;
+}
+
+hr {
+	height: 1px;
+	background: #cecece;
+	border: none;
+	margin-bottom: 24px;	
+}
+
+
+a {
+	text-decoration: none;
+}
+
+a {
+	color: $link-color;
+	text-decoration: none;
+		
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+
+strong {
+	font-weight: 600;	
+}
+
+
+
+/* Headings
+--------------------------------------------- */
+	
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "ff-avance-web-pro";
+	font-weight: normal;	
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+	a {
+		color: $link-color;	
+	}
+}

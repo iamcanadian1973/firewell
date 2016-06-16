@@ -1,0 +1,23 @@
+//--------------------------------------------------------------
+// Float Clearing
+//--------------------------------------------------------------
+
+
+.archive-pagination,
+.comments-pagination,
+.clearfix,
+.clear,
+.entry,
+.entry-pagination,
+.nav-primary,
+.nav-secondary,
+.site-container,
+.site-content,
+.site-footer,
+.site-header,
+.site-inner,
+.sidebar .widget,
+.wrap {
+	@include clearfix;
+}
+
