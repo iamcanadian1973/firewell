@@ -16,40 +16,20 @@ a {
 
 .no-wrap-block { white-space: nowrap; }
 
-.entry-content {
+.site-content {
+	padding: 3% 1em;
+	margin: 0 auto;
+}
 
-	p {
-		margin-bottom: $paragraph-margin-bottom;
-	}
-	
-	ul, ol {
-		margin-bottom: 13px;	
-	}
-	
-	ul, ol {
-			
-		li {			
-			
-			list-style-position: outside;
-			margin-bottom: 0px;
-			
-			ul {
-				margin-bottom: 0;	
-			}
-		}
-	}
-	
-	ul:not([class]) {
-		margin-left: 21px;
-	}
-	
-	ol li {
-		list-style-type: decimal;
-	}
+.entry-header, .entry-content {
 
-	
-	li, p {
-		line-height: $paragraph-line-height;
-	}
-	
+	max-width: 60em;
+
+}
+
+
+
+.site-container {
+	display: block;
+
 }

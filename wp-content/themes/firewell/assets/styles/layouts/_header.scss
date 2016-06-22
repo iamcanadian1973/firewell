@@ -1,3 +1,149 @@
 //--------------------------------------------------------------
 // Header
 //--------------------------------------------------------------
+
+.before-header  {
+
+	position: relative;
+
+	width: 100%;
+
+	padding: 0.75em;
+
+	background-color: $navy;
+	
+	a { 
+
+		color: white;
+
+	}
+
+	a:hover {
+
+		color: $orange;
+	}
+
+	ul { 
+
+		font-weight: 700;
+	}
+
+	ul li {
+		margin: 0 0.5em;
+	}
+
+	ul li:last-of-type a { 
+
+		color: $gold;
+
+		&:hover { 
+			color: $orange;
+		}
+	}
+
+	ul li,
+	aside.widget { 
+
+		display: inline-block;
+
+	}
+
+	.widget_search { 
+
+		position: absolute;
+		top: 0.25em;
+		right: 0.25em;
+	}
+
+}
+
+.site-header {
+
+	position: relative;
+	width: 100%;
+	padding: 1em;
+	font-size: 1.125em;
+	background-color: $indigo;
+
+	@media screen and (min-width: 60em) { 
+		padding: 2.5%;
+	}
+
+  	@media screen and (min-width: 75em) {
+		
+
+  			ul li { margin: 0 1.75em; }
+
+  	}
+
+	@media screen and (min-width: 90em) {
+	    
+
+	    	ul li { margin: 0 2.5em; }
+  	}
+
+	ul li:hover:after {	
+
+			display: block;
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 3px;
+			background-color: $gold;
+			bottom: -0.25em;
+		
+		}
+
+	ul li.current-menu-item:after {	
+
+		display: block;
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 3px;
+		background-color: $gold;
+		bottom: -0.25em;
+	
+	}
+
+
+
+	a { 
+		color: white;
+		font-weight: 600;
+
+		&:hover { 
+			color: white;
+		}
+
+		
+		
+	}
+
+	.site-branding, ul li { 
+
+		display: inline-block;
+
+	}
+
+	li a { 
+		display: block;
+		padding: 0.5em 0.125em;
+	}
+
+	nav {
+		position: absolute;
+  		top: 50%;
+  		transform: translateY(-50%);
+  		right: 1em;
+	}
+}
+
+
+.site-title {
+
+	width: 200px;
+
+	a { display: block; }
+
+}

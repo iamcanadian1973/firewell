@@ -31,7 +31,7 @@
 		
 		<div class="site-info">
 
-			<?php printf( esc_html__( '&copy; %1$s Firewell. All rights reserved.', 'firewell' ), date( 'Y' ) ); ?>
+			<span class="copyright-text"><?php printf( esc_html__( '&copy; %1$s Firewell. All rights reserved.', 'firewell' ), date( 'Y' ) ); ?></span>
 			
 			<?php	
 			wp_nav_menu( array(

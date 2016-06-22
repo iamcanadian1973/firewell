@@ -12,6 +12,13 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 /**
  * Remove default margin.
  */
@@ -421,4 +428,11 @@ table {
 td,
 th {
   padding: 0;
+}
+
+
+input, textarea, select, form, button {
+    border-radius:3px; 
+    border: none;
+    padding: 0.35em;
 }

@@ -1,3 +1,55 @@
 //--------------------------------------------------------------
 // Footer
 //--------------------------------------------------------------
+
+
+.site-footer {
+	padding: 1em;
+	width: 100%;
+	background-color: $navy;
+	color: rgba(#fff, 0.65);
+	text-align: center;
+	line-height: 2;
+
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+
+	a {
+		color: #fff;
+		padding: 0.25em;
+		margin: 0.25em;
+		font-weight: 600;
+
+		&:hover {
+			color: lighten($blue, 20%);
+		}
+	}
+
+	.site-info {
+		margin-top: 1em;
+		font-size: 0.8em;
+	}
+
+	.copyright-text {
+		display: block;
+		padding: 0.5em;
+	}
+
+	@media screen and (min-width: 55em) { 
+		text-align: left;
+
+		.copyright-text {
+			display: inline;
+		}
+
+		.site-info {
+			display: inline-block;
+			float: right;
+			margin-top: 0.45em;
+		}
+	}
+
+
+}

@@ -19,7 +19,7 @@
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
-				right: 10px;
+				right: 1em;
 			}
 	
 			&:hover {
@@ -28,8 +28,8 @@
 	
 			span.line {
 				transition: 0;
-				background: #959595;
-				width: 32px;
+				background: #fff;
+				width: 24px;
 				height: 3px;
 				margin-bottom: 5px;
 				display: block;
@@ -49,19 +49,53 @@
 		top: 0;
 		right: 0;
 		z-index: 9999;
-		background: $medium-grey;
+		background: $navy;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
+
+		li a { 
+			display: block;
+			padding: 0.75em 1.65em;
+			color: #fff;
+			font-weight: 600;
+			font-size: 1.25em;
+
+			&:hover {
+				background-color: $blue;
+			}
+
+			&:active {
+				background-color: $indigo;
+			}
+		}
+
+		.current-menu-item a, .current_page_item a {
+			background-color: $gold;
+
+			&:hover {
+				background-color: $gold;
+			}
+		}
 	
 		.close-btn {
 			color: #fff;
 			display: block;
-			opacity: .4;
-			font-weight: 300;
-			font-style: italic;
-			font-size: 16px;
-			line-height: 24px;
-			padding: 20px 40px 20px;
+			opacity: .6;
+			padding: 1em;
+			text-align: right;
+			font-weight: 600;
+			line-height: 1;
+			position: relative;
+			padding-right: 2.5em;
+
+
+			&:after {
+				content: '×';
+				font-size: 1.65em;
+				position: absolute;
+				right: 0.5em;
+				top: 0.4em;
+			}
 	
 			&:hover {
 				text-decoration: none;
@@ -70,12 +104,7 @@
 			}
 	
 			span {
-				float: right;
-				font-size: 24px;
-				width: 24px;
-				height: 24px;
-				margin-top: 0;
-				font-weight: normal;
+				font-size: 2em;
 			}
 		}
 	}
@@ -139,10 +168,12 @@
 			display: block;
 			position: fixed;
 			top: 0;
-			right: 260px;
+			right: 0;
 			bottom: 0;
 			left: 0;
-			z-index: 9999;
+			z-index: 9998;
+			opacity: 0.4;
+			background-color: #000; 
 		}
 	}
 	

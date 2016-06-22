@@ -10,7 +10,7 @@ function firewell_off_canvas_menu() {
 		'echo' => FALSE
 		); 
 			
-	printf( '<div class="pushy pushy-left"><a href="#" class="close-btn"><em>' . __( 'Close Navigation', 'firewell' ) . '</em> X</a>%s</div>', wp_nav_menu( $args ) );
+	printf( '<div class="pushy pushy-left"><a href="#" class="close-btn">' . __( 'Close', 'firewell' ) . '</a>%s</div>', wp_nav_menu( $args ) );
 }
 
 /**

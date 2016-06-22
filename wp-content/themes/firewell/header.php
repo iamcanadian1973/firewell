@@ -45,7 +45,7 @@ firewell_site_overlay();
 			<div class="site-branding">
 
 				<?php		
-				$logo = sprintf('<img src="%s" alt="%s"/>', CHILD_THEME_IMG .'/logo.png', get_bloginfo( 'name' ) );
+				$logo = sprintf('<img src="%s" alt="%s"/>', CHILD_THEME_IMG .'/logo.svg', get_bloginfo( 'name' ) );
 				$site_url = site_url();
 				printf('<div class="site-title"><a href="%s" title="%s">%s</a></div>', $site_url, get_bloginfo( 'name' ), $logo );
 				// mobile menu button
