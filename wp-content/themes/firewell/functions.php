@@ -87,7 +87,10 @@ function firewell_load_custom_settings() {
 	include_once( CHILD_DIR . '/lib/wp-cleanup.php' );
 	
 	// Child Theme Functions
-	include_once( CHILD_DIR . '/lib/functions/index.php' );
+	include_once( CHILD_DIR . '/lib/functions/init.php' );
+	
+	// Page Buiklder
+	include_once( CHILD_DIR . '/lib/page-builder/init.php' );
 }
 add_action( 'after_setup_theme', 'firewell_load_custom_settings' );
 

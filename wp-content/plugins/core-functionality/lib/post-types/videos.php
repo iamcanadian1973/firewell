@@ -17,7 +17,7 @@ class Videos_CPT extends CPT_Core {
      */
     public function __construct() {
 
-        $this->post_type = 'arktos_video';
+        $this->post_type = 'video';
 		$this->taxonomies = array( 'portfolio_categories' );
 		$this->domain = 'firewell';
 		$this->parent_menu_item = '216';
@@ -43,7 +43,7 @@ class Videos_CPT extends CPT_Core {
 				'show_in_menu' 		 => true,
 				'show_in_nav_menus'  => false,
 				'exclude_from_search' => false,
-				'rewrite' => array('slug'=> 'media/videos' ), 
+				'rewrite' => array('slug'=> 'resources/videos' ), 
 				'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'excerpt', 'revisions' ),
 				'menu_icon' => 'dashicons-format-video' )
 
@@ -53,12 +53,12 @@ class Videos_CPT extends CPT_Core {
 		add_filter( 'nav_menu_css_class', array( $this, 'post_type_set_current_parent' ) ); 
 		
 		// We don't want anyone to find the single video page
-		add_action( 'template_redirect', array( $this, 'redirect_single_video' ) );
+		//add_action( 'template_redirect', array( $this, 'redirect_single_video' ) );
 				
 		// Set featured video
-        add_action( sprintf( 'wp_ajax_featured_%s', $this->post_type ), array( $this, 'set_featured' ) );
+        //add_action( sprintf( 'wp_ajax_featured_%s', $this->post_type ), array( $this, 'set_featured' ) );
 	   
-	    add_action('pre_get_posts', array( $this, 'filter_cpt_order' ));
+	    //add_action('pre_get_posts', array( $this, 'filter_cpt_order' ));
 		
     }
 	
@@ -117,7 +117,6 @@ class Videos_CPT extends CPT_Core {
 		
 		$new_column = array(
             //'feature' => sprintf( __( 'Featured %s', $this->domain ), $this->post_type( 'singular' ) ),
-			'portfolio_category' => __( 'Categories', $this->domain ),
         );
         //return array_merge( $new_column, $columns );
         return array_slice( $columns, 0, 2, true ) + $new_column + array_slice( $columns, 1, null, true );
@@ -146,31 +145,9 @@ class Videos_CPT extends CPT_Core {
 			}
 			echo '</a>';
 			break;
-			case 'portfolio_category':
-				$this->taxonomy_column( $post, 'portfolio-categories', 'Categories' );
-			break;
         }
     }
 	
-	
-	private function taxonomy_column( $post = '', $tax = '', $name = '' ) {
-		if ( empty( $post ) ) return;
-		$id = $post->ID;
-		$categories = get_the_terms( $id, $tax );
-		if ( !empty( $categories ) ) {
-			$out = array();
-			foreach ( $categories as $c ) {
-				$out[] = sprintf( '<a href="%s">%s</a>',
-				esc_url( add_query_arg( array( 'post_type' => $post->post_type, $tax => $c->slug ), 'edit.php' ) ),
-				esc_html( sanitize_term_field( 'name', $c->name, $c->term_id, 'category', 'display' ) )
-				);
-			}
-			echo join( ', ', $out );
-		} else {
-			_e( 'No '. $name .' Specified' );
-		}
-
-	}
 
 	
 	private function set_featured() {
@@ -231,20 +208,27 @@ class Videos_CPT extends CPT_Core {
 	}
 	
 }
-new Videos_CPT();
+
+$videos_cpt = new Videos_CPT();
 
 $video_cpt_categories = array(
-    __( 'Video Category', $portfolio_cpt->domain ), // Singular
-    __( 'Video Categories', $portfolio_cpt->domain ), // Plural
+    __( 'Video Category', $videos_cpt->domain ), // Singular
+    __( 'Video Categories', $videos_cpt->domain ), // Plural
     'video_category' // Registered name
 );
 
 $video_cpt_tags = array(
-    __( 'Video Tag', $portfolio_cpt->domain ), // Singular
-    __( 'Video Tags', $portfolio_cpt->domain ), // Plural
+    __( 'Video Tag', $videos_cpt->domain ), // Singular
+    __( 'Video Tags', $videos_cpt->domain ), // Plural
     'video_tag' // Registered name
 );
 
-$video_cats = register_via_taxonomy_core( $video_cpt_categories, array(), array( 'video-category' ) );
+$video_cats = register_via_taxonomy_core( $video_cpt_categories, 
+	array( 
+		  'rewrite' => array('slug'=> 'video-category' ) ),
+	array( 'video' ) );
 
-$video_tags = register_via_taxonomy_core( $video_cpt_tags, array( 'hierarchical' => false ), array( 'video-tag' ) );
+$video_tags = register_via_taxonomy_core( $video_cpt_tags, 
+	array( 'hierarchical' => false,
+		   'rewrite' => array('slug'=> 'video-tag' ) ), 
+	array( 'video' ) );

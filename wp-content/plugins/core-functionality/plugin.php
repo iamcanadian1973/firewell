@@ -11,7 +11,8 @@ define( 'KR_DIR', dirname( __FILE__ ) );
 
 
 // Post Types
-//include_once( KR_DIR . '/lib/post-types/floor-plans.php' );
+include_once( KR_DIR . '/lib/post-types/videos.php' );
+include_once( KR_DIR . '/lib/post-types/research.php' );
 
 // functions
 
