@@ -58,8 +58,6 @@ class Research_CPT extends CPT_Core {
 	   
 	    //add_action('pre_get_posts', array( $this, 'filter_cpt_order' ));
 		
-		add_filter( 'default_content', array( $this, 'set_default_content' ), 10, 2 );
-		
     }
 	
 	function filter_cpt_order( $query ){
@@ -76,22 +74,6 @@ class Research_CPT extends CPT_Core {
 			wp_redirect( get_post_type_archive_link( $this->post_type ) , 302 );
 			exit;
 		}
-	}
-	
-	
-	
-
-	function set_default_content( $content, $post ) {
-	
-		$current_screen = get_current_screen();
-	   
-	    if( $this->post_type != $current_screen->post_type )
-			return;
-		
-		$content = 'Research content goes here.';
-	
-		return $content;
-	
 	}
 	
 		

@@ -1,4 +1,6 @@
 <?php
+// Firewell Member functions
+
 function firewell_members_protected() {
 	if ( !current_user_can( 'read' ) ) {
 		// redirect to login page	
