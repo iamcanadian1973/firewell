@@ -19,6 +19,8 @@ if( have_rows('faq') ):
 
  	print( '<div class="accordion" data-collapse>' );
 	
+	$count = 1;
+	
 	// loop through the rows of data
     while ( have_rows('faq') ) : the_row();
 
@@ -26,8 +28,12 @@ if( have_rows('faq') ):
         $question = get_sub_field('question');
 		
 		if( $question ) {
-			printf( '<h3>%s</h3>', $question );
+			printf( '<h3 id="faq-%s">%s</h3>', $count, $question );
+			print( '<div>' );
 			the_sub_field( 'answer' );
+			printf('<p><a class="faq-link" href="%s/#faq-%s">#</a></p>', get_permalink(), $count );
+			print( '</div>' );
+			$count++;
 		}
 		
 		
