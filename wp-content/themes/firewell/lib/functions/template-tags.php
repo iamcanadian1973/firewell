@@ -28,21 +28,51 @@ function firewell_posted_on() {
 
 	$posted_on = sprintf(
 		esc_html_x( '%s', 'post date', 'firewell' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$time_string
 	);
 
-/*
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'firewell' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-	*/
-	//$byline = '<span class="byline"> ' . $byline . '</span>';
+	if( get_post_meta( get_the_ID(), 'event', true ) ) {
+		$date = get_event_date();
+		$location = get_post_meta( get_the_ID(), 'event_location', true );
+		if( $location ) {
+			$location = sprintf( '&#8226; %s', $location );
+		}
+		$time = get_post_meta( get_the_ID(), 'event_time', true );
+		if( $time ) {
+			$time = sprintf( '&#8226; %s', $time );
+		}
+		$posted_on = $date . $location . $time;
+	}
 
-	return '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
+
+
+function get_event_date() {
+	global $post;
+	$post_id = get_the_ID();
+	$start = get_post_meta( $post_id, 'event_start_date', true );
+	
+	$end   = get_post_meta( $post_id, 'event_end_date', true );
+ 	$format = 'Ymd';
+	$date = '';
+	
+	if( $start && $end ) {
+		$start = DateTime::createFromFormat( $format, $start );
+		$end = DateTime::createFromFormat( $format, $end );
+		
+		if( $start != $end ) {
+			$date = sprintf( '%s - %s', $start->format('F d, Y'), $end->format('F d, Y') );
+		}
+		else {
+			$date = $start->format('F d, Y');
+		}
+	}
+	
+	return $date;
+}
 
 if ( ! function_exists( 'firewell_entry_footer' ) ) :
 /**

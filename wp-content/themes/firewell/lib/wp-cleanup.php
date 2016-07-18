@@ -101,18 +101,6 @@ function mb_remove_script_version( $src ){
 	return $parts[0];
 }
 
-// Remove Read More Jump
-add_filter( 'the_content_more_link', 'mb_remove_more_jump_link' );
-function mb_remove_more_jump_link( $link ) {
-	$offset = strpos( $link, '#more-' );
-	if ($offset) {
-		$end = strpos( $link, '"',$offset );
-	}
-	if ($end) {
-		$link = substr_replace( $link, '', $offset, $end-$offset );
-	}
-	return $link;
-}
 
 // fix menu always showing blog as parent
 function dtbaker_wp_nav_menu_objects($sorted_menu_items, $args){
@@ -282,6 +270,7 @@ if ( $homepage ) {
 add_filter('the_content_more_link', 'ssm_remove_more_jump_link');
 function ssm_remove_more_jump_link($link) {
 	$offset = strpos($link, '#more-');
+	$end = '';
 	if ($offset) {
 		$end = strpos($link, '"',$offset);
 	}

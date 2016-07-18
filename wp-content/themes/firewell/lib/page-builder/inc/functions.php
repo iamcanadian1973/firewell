@@ -69,6 +69,15 @@ function kr_term_list( $tax, $args = array() ) {
 	
 }
 
+// get the page builder image
+function pb_get_image( $attachment_id, $size = 'large' ) {
+	$image = '';
+	if( $attachment_id ) {
+		$image = wp_get_attachment_image( $attachment_id, $size, '' );				
+	}
+	return $image;
+ }
+
 
 function pb_set_default_value( $value, $default ) {
 	if( is_array( $value ) ) {

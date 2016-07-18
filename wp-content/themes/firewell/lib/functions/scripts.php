@@ -16,7 +16,9 @@ function load_scripts() {
     	
 	// Modernizr
 	wp_enqueue_script( 'modernizr', CHILD_THEME_JS . '/modernizr.custom.js', FALSE, NULL );
-	 	
+	
+	// Collapse
+	wp_enqueue_script( 'collapse', CHILD_THEME_JS . '/jquery.collapse.js', array('jquery' ), NULL );	 	
 	
 	// Child Theme JS
 	wp_enqueue_script( CHILD_THEME_NAME , CHILD_THEME_JS . '/general.js', array('jquery'), NULL, TRUE );
