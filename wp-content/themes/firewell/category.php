@@ -30,10 +30,10 @@ get_header(); ?>
 			
 			$archive_link = get_permalink( $posts_page_id );
 				$slug = '';
-				$term = is_tax() ? 
-						get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : 
+				$term = is_category() ? 
+						get_category( get_query_var( 'cat' ) ) : 
 						FALSE;
-				
+								
 				if ( ! is_wp_error( $term ) && !empty( $term ) ) {
 					$slug = $term->slug;
 				}

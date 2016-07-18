@@ -57,16 +57,9 @@ get_header(); ?>
 			<?php
 			
 			$archive_link = get_permalink( $posts_page_id );
-				$slug = '';
-				$term = is_tax() ? 
-						get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : 
-						FALSE;
+				$slug = 'past-events';
 				
-				if ( ! is_wp_error( $term ) && !empty( $term ) ) {
-					$slug = $term->slug;
-				}
-	
-				$current_term = $term ? $slug : '';
+				$current_term = $slug;
 				// menu
 				$tax = 'category';
 				$args = array( 'hide_empty' => false );

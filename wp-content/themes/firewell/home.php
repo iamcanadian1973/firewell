@@ -45,7 +45,9 @@ get_header(); ?>
 				$terms = get_terms($tax, $args);
 				
 				if ( count( $terms ) ) {
-					$out = sprintf( '<li><a href="%s">All News & Upcoming Events</a></li>', $archive_link );
+					
+					$current = is_home() ? ' class="current-menu-item"' : '';
+					$out = sprintf( '<li%s><a href="%s">All News & Upcoming Events</a></li>', $current, $archive_link );
 					
 					foreach( $terms as $term ) {
 						$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';

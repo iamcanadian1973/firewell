@@ -32,14 +32,14 @@ function firewell_posted_on() {
 	);
 
 	if( get_post_meta( get_the_ID(), 'event_start_date', true ) ) {
-		$date = get_event_date();
+		$date = sprintf( '<span>%s</span>', get_event_date() );
 		$location = get_post_meta( get_the_ID(), 'event_location', true );
 		if( $location ) {
-			$location = sprintf( '&#8226; %s', $location );
+			$location = sprintf( '<span>%s</span>', $location );
 		}
 		$time = get_post_meta( get_the_ID(), 'event_time', true );
 		if( $time ) {
-			$time = sprintf( '&#8226; %s', $time );
+			$time = sprintf( '<span>%s</span>', $time );
 		}
 		$posted_on = $date . $location . $time;
 	}
