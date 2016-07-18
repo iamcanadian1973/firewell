@@ -99,7 +99,8 @@
 	$archive_link = get_post_type_archive_link( 'research' );
 	$share = addtoany_share_icons();
 	
-	printf( '<div class="research-footer"><a href="%s">View All Findings</a>%s</div>', $archive_link, $share );
+	if( is_single() )
+		printf( '<div class="research-footer"><a href="%s">View All Findings</a>%s</div>', $archive_link, $share );
 	?>
 
 	<?php if ( get_edit_post_link() ) : ?>

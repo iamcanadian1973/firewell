@@ -65,19 +65,3 @@ function get_column_classes( $column_count ) {
 	}
 	
 }
-
-
-function pb_get_image( $attachment_id, $wrap = FALSE, $size = 'large' ) {
-	
-	if( !empty( $attachment_id ) ) {
-		$before = '';
-		$after = '';
-		if( $wrap ) {
-			$before = '<div class="image-wrap"><div><div class="bg-wrap">';
-			$after = '</div></div></div>';
-		}
-		return sprintf( '%s%s%s', $before, wp_get_attachment_image( $attachment_id, $size ), $after );	
-	}
-	
-	return FALSE;
-}

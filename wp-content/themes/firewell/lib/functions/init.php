@@ -10,9 +10,11 @@ include_once( 'sidebars.php' );
 include_once( 'scripts.php' );
 //include_once( 'widgets.php' );
 include_once( 'off-canvas-menu.php' );
-
+include_once( 'news-events.php' );
 include_once( 'members.php' );
 
 include_once( 'research.php' );
 include_once( 'addtoany.php' );
 include_once( 'custom-routing.php' );
+
+//include_once( 'load-more.php' );

@@ -67,6 +67,7 @@ class Videos_CPT extends CPT_Core {
 				//$query->set( 'posts_per_page', '12' );
 				$query->set( 'orderby', 'menu_order' );
 				$query->set( 'order', 'ASC' );
+				$query->set( 'posts_per_page', -1 );
 		}
 	}
     

@@ -10,7 +10,7 @@ function firewell_widgets_init() {
 	// Define sidebars
 	$sidebars = array(
 	'before-header'  => esc_html__( 'Before Header', 'firewell' ),
-	//	'sidebar-2'  => esc_html__( 'Sidebar 2', 'firewell' ),
+	'after-header'  => esc_html__( 'After Header', 'firewell' ),
 	//	'sidebar-3'  => esc_html__( 'Sidebar 3', 'firewell' ),
 	);
 

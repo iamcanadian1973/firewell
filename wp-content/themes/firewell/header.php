@@ -69,5 +69,13 @@ firewell_site_overlay();
 			</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
+	
+	<div class="after-header">
+		<?php
+		if ( is_active_sidebar( 'after-header' ) ) {
+			dynamic_sidebar( 'after-header' );
+		}
+		?>
+	</div>
 
 	<div id="content" class="site-content">
