@@ -31,7 +31,7 @@ function firewell_posted_on() {
 		$time_string
 	);
 
-	if( get_post_meta( get_the_ID(), 'event', true ) ) {
+	if( get_post_meta( get_the_ID(), 'event_start_date', true ) ) {
 		$date = get_event_date();
 		$location = get_post_meta( get_the_ID(), 'event_location', true );
 		if( $location ) {
