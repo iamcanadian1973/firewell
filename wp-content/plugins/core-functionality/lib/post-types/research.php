@@ -87,7 +87,16 @@ class Research_CPT extends CPT_Core {
 	    if( $this->post_type != $current_screen->post_type )
 			return;
 		
-		$content = 'Research content goes here.';
+		$content = "<h2>What is the problem?</h2>
+		[Add content here or delete all of this for 'Presentations']
+		<h2>How did the team study the problem?</h2>
+		[Add content here]
+		<h2>What did the team find?</h2>
+		[Add content here]
+		<h2>How can this research be used?</h2>
+		[Add content here]
+		<h2>Cautions</h2>
+		[Add content here]";
 	
 		return $content;
 	
