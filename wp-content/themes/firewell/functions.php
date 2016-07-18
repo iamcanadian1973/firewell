@@ -106,3 +106,9 @@ function firewell_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'firewell_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'firewell_content_width', 0 );
+
+
+function admin_style() {
+  wp_enqueue_style('firwell-admin-css', trailingslashit( CHILD_THEME_CSS ) . 'admin.css' );
+}
+add_action('admin_enqueue_scripts', 'admin_style');

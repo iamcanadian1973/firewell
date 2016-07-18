@@ -1,5 +1,7 @@
 <?php
 // Include functions
+if( is_admin() )
+	include_once( 'admin.php' );
 
 include_once( 'theme.php' );
 include_once( 'extras.php' );
