@@ -40,6 +40,11 @@ a {
 
 }
 
+ul.sub-menu {
+	display: none!important; // Don't want the sub-menu to display as a dropdown or in the off-canvas menu
+}
+
+
 @media only screen and (min-width : 980px) {
       
 
@@ -67,7 +72,6 @@ a {
 		
 			// Sub-menu
 			ul {
-				display: none!important; // Don't want the sub-menu to display as a dropdown
 				left: -999em;
 				position: absolute;
 				top: 100%;
@@ -145,6 +149,7 @@ a {
 	
 	// Sublevels
 	.sub-menu {
+
 		
 		> .menu-item {
 			display: block;

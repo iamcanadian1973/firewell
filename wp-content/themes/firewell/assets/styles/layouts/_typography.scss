@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// Typography - changed
+// Typography
 //--------------------------------------------------------------
 
 html {
@@ -111,7 +111,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     h2, .h2 { font-size: 2em; }
     h3, .h3 { font-size: 1.75em; }
     h4, h5, h6, .h4, .h5, .h6 { font-size: 1.5em; }
-    p, .site-content ul, .site-content ol { font-size: 1.1em; }
+    p, .site-content ul, .site-content ol { font-size: 1.05em; }
 }
 
 @media (min-width: 80em) {
@@ -137,9 +137,14 @@ h4, h5, h6, .h4, .h5, .h6 {
 	text-decoration: none;
 }
 
+/* 
+
+
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 	font-weight: 400;
 }
+
+*/
 
 .intro {
     font-size:1em;
@@ -270,7 +275,7 @@ small {
 	font-size: 75%;
 }
 
-big {
+big, .big {
 	font-size: 125%;
 }
 

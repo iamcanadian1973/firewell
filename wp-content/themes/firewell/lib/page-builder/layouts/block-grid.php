@@ -58,7 +58,7 @@ function layout_block_grid() {
 			}
 			
 				
-			$out .= sprintf('<li><div>%s%s%s%s%s%s</div></li>', 
+			$out .= sprintf('<li><div>%s%s<div class="tile-text">%s%s%s</div>%s</div></li>', 
 				$anchor_open, 
 				$image, 
 				$heading, 

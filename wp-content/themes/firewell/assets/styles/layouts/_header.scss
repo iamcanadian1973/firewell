@@ -66,7 +66,7 @@
 	background-color: $indigo;
 
 	@media screen and (min-width: 60em) { 
-		padding: 2.5%;
+		padding: 2em;
 	}
 
   	@media screen and (min-width: 75em) {
@@ -145,5 +145,72 @@
 	width: 200px;
 
 	a { display: block; }
+
+}
+
+
+
+/* Header Search Form */
+
+
+#search-3 {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: inline-block;
+	text-align: right;
+}
+
+#search-3 input[type="search"]::placeholder {
+	color: $grey30;
+}
+
+
+#search-3 .searchbox-input {
+	box-sizing: border-box;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	width: 0;
+	height: 100%;
+	padding: 0.5em 1.5em;
+	position: relative;
+	-webkit-transition: width 400ms ease, background 400ms ease;
+	transition: width 400ms ease, background 400ms ease;
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxOC44IDE4LjgiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE4LjggMTguOCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTAuMSw2LjFjMC4xLTAuNCwwLjItMC45LDAuNC0xLjNDMC43LDQuNCwxLDQsMS4yLDMuNmMwLjMtMC40LDAuNi0wLjgsMC45LTEuMmMwLjMtMC4zLDAuNi0wLjYsMC45LTAuOGMwLjMtMC4zLDAuNy0wLjUsMS0wLjdjMC4zLTAuMiwwLjctMC4zLDEuMS0wLjVDNS42LDAuMyw2LDAuMiw2LjQsMC4xQzcsMCw3LjYsMCw4LjIsMGMwLjYsMCwxLjIsMC4xLDEuNywwLjNDMTAuNSwwLjUsMTEsMC43LDExLjUsMWMwLjUsMC4zLDEsMC43LDEuNSwxLjFjMC4zLDAuMywwLjYsMC42LDAuOSwwLjljMC4zLDAuMywwLjUsMC43LDAuNywxLjFjMC4yLDAuNCwwLjQsMC44LDAuNSwxLjJzMC4yLDAuOCwwLjMsMS4zYzAuMSwwLjUsMC4xLDAuOSwwLjEsMS40cy0wLjEsMC45LTAuMSwxLjNzLTAuMiwwLjktMC40LDEuM2MtMC4yLDAuNC0wLjQsMC44LTAuNiwxLjJjMCwwLDAsMCwwLDAuMWMwLDAsMCwwLDAsMHMwLDAsMCwwYzAsMCwwLDAsMCwwYzAuMiwwLjIsMC41LDAuNSwwLjksMC45YzAuNCwwLjQsMC43LDAuNywxLjEsMS4xYzAuNCwwLjQsMC44LDAuOCwxLjEsMS4xczAuNiwwLjYsMC45LDAuOGMwLjEsMC4xLDAuMiwwLjIsMC4yLDAuM3MwLjEsMC4yLDAuMiwwLjNjMCwwLjEsMC4xLDAuMiwwLjEsMC4zczAsMC4zLDAsMC40YzAsMC4yLDAsMC40LTAuMSwwLjZjLTAuMSwwLjItMC4yLDAuMy0wLjMsMC41Yy0wLjEsMC4xLTAuMywwLjMtMC40LDAuNGMtMC4yLDAuMS0wLjQsMC4yLTAuNSwwLjJjLTAuMiwwLTAuMywwLTAuNCwwYy0wLjEsMC0wLjMsMC0wLjQtMC4xYy0wLjEsMC0wLjItMC4xLTAuNC0wLjJzLTAuMi0wLjItMC4zLTAuM2MtMC4yLTAuMi0wLjUtMC41LTAuOS0wLjhzLTAuOC0wLjctMS4xLTEuMWMtMC40LTAuNC0wLjgtMC44LTEuMS0xLjFjLTAuNC0wLjQtMC42LTAuNy0wLjgtMC45YzAsMCwwLDAsMCwwYzAsMCwwLDAsMCwwczAsMCwwLDBjMCwwLDAsMC0wLjEsMGMtMC4yLDAuMS0wLjUsMC4zLTAuNywwLjRjLTAuMiwwLjEtMC41LDAuMi0wLjcsMC4zYy0wLjIsMC4xLTAuNSwwLjItMC44LDAuMlM5LDE1LjMsOC44LDE1LjNjLTAuNCwwLjEtMC44LDAuMS0xLjIsMC4xcy0wLjcsMC0xLjEtMC4xYy0wLjQtMC4xLTAuNy0wLjEtMS4xLTAuM2MtMC40LTAuMS0wLjctMC4zLTEuMS0wLjRjLTAuNS0wLjItMC45LTAuNS0xLjQtMC44cy0wLjgtMC43LTEuMS0xYy0wLjMtMC40LTAuNi0wLjgtMC45LTEuM0MwLjcsMTEsMC41LDEwLjYsMC40LDEwQzAuMyw5LjgsMC4yLDkuNiwwLjIsOS41YzAtMC4yLTAuMS0wLjQtMC4xLTAuNkMwLjEsOC42LDAsOC40LDAsOC4yQzAsOCwwLDcuNywwLDcuNUMwLDcsMC4xLDYuNiwwLjEsNi4xeiBNOS43LDEyLjRjMC42LTAuMywxLjItMC42LDEuNi0xLjFjMC41LTAuNSwwLjgtMSwxLjEtMS42czAuNC0xLjMsMC40LTJjMC0wLjctMC4xLTEuNC0wLjQtMmMtMC4zLTAuNi0wLjYtMS4yLTEuMS0xLjZjLTAuNS0wLjUtMS0wLjgtMS42LTEuMWMtMC42LTAuMy0xLjMtMC40LTItMC40QzcsMi42LDYuMywyLjcsNS43LDNDNS4xLDMuMiw0LjYsMy42LDQuMSw0LjFDMy42LDQuNSwzLjMsNS4xLDMsNS43QzIuNyw2LjMsMi42LDcsMi42LDcuN2MwLDAuNywwLjIsMS40LDAuNCwyYzAuMywwLjYsMC42LDEuMiwxLjEsMS42YzAuNSwwLjUsMSwwLjgsMS42LDEuMWMwLjYsMC4zLDEuMywwLjQsMiwwLjRDOC40LDEyLjgsOS4xLDEyLjcsOS43LDEyLjR6Ii8+PC9nPjwvc3ZnPg==);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: center center;
+}
+
+
+
+#search-3 .searchbox-input:focus {
+	cursor: text;
+	outline: 0;
+	border-radius: 0;
+	width: 100vw;
+	background-color: #fff;
+	color: $grey70;
+	font-size: 1em;
+	line-height: 2;
+	padding: 0.5em;
+	display: inline-block;
+}
+
+#search-3 .search-submit {
+  display: none;
+}
+
+#search-3 input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-appearance:none; 
+  -webkit-border-radius:0;
+}
+
+
+@media (min-width: 30em) { 
+
+	#search-3 .searchbox-input:focus { width: 280px; }
 
 }
