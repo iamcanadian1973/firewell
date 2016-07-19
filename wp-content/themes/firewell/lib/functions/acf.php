@@ -7,16 +7,16 @@
 
 if( function_exists('acf_add_options_sub_page') ) {
 	
-	/*
+	
 	$child_theme_settings = acf_add_options_page(array(
-		'page_title' 	=> 'The Gardens',
-		'menu_title' 	=> 'The Gardens',
+		'page_title' 	=> 'Firewell',
+		'menu_title' 	=> 'Firewell',
 		'menu_slug' 	=> 'child-theme-settings',
 		'capability' 	=> 'edit_posts',
 		'position' => 40,
 		'redirect' 	=> true
 	));
-	*/
+	
 	
 	
 }
