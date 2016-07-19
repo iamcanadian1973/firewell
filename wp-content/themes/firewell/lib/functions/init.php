@@ -17,4 +17,5 @@ include_once( 'research.php' );
 include_once( 'addtoany.php' );
 include_once( 'custom-routing.php' );
 
+include_once( 'gravity-forms.php' );
 //include_once( 'load-more.php' );
