@@ -7,16 +7,14 @@
 a {
 	color: $orange;
 
-	&:hover,
-	&:focus,
-	&:active {
+	&:hover {
 		color: $burgundy;
 	}
 }
 
 // Buttons 
 
-.btn {
+.btn, .button {
 	display: inline-block;
 	margin: 0 1em 1em 0;
 	padding: 0.5em 1em;
@@ -24,6 +22,7 @@ a {
 	font-weight: bold;
 	border-radius: 3px;
 	background-color: $orange;
+	text-decoration: none;
 
 	&:hover {
 		background-color: $burgundy;
@@ -43,6 +42,12 @@ a {
 ul.sub-menu {
 	display: none!important; // Don't want the sub-menu to display as a dropdown or in the off-canvas menu
 }
+
+li a {
+			display: block;
+			text-decoration: none;
+			
+		}
 
 
 @media only screen and (min-width : 980px) {
@@ -128,11 +133,8 @@ ul.sub-menu {
 		
 		
 	
-		// Menu hyperlinks
-		li a {
-			display: block;
-			text-decoration: none;
-		}
+		
+		
 	
 		// Current items
 		.current_page_item a,
@@ -200,3 +202,57 @@ ul.sub-menu {
 		text-align: right;
 	}
 }
+
+
+
+// Sub Menu Bar
+
+.widget_jc_split_menu_widget {
+	background-color: $blue;
+	padding: 0.75em 1em 1em 1em;
+	text-align: center;
+	font-weight: 700;
+
+	a {
+		color: #fff;
+
+		&:hover {
+			color: $gold;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		line-height: 2;
+
+		li {
+			display: inline-block;
+			margin: 0 1em;
+			position: relative;
+		}
+
+		li.current-menu-item a {
+			color: $gold;
+		}
+	}
+}
+
+
+@media only screen and (min-width : 980px) { 
+
+	.widget_jc_split_menu_widget li.current-menu-item:after {
+			position: absolute;
+			content: '';
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 10px 10px 10px;
+			border-color: transparent transparent #ffffff transparent;
+			bottom: -1em;
+			left: calc(50% - 10px);
+		}
+
+}
+

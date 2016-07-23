@@ -1,0 +1,58 @@
+//--------------------------------------------------------------
+// News & Events Page Styles
+//--------------------------------------------------------------
+
+
+.filter-by {
+	background-color: darken( $grey5, 5% );
+	padding: 0.5em;
+	border-radius: 5px;
+	margin: 1em 0;
+	font-weight: 700;
+
+	span {
+		margin-right: 0.5em;
+		color: $grey30;
+		display: none;
+	}
+
+	ul {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+			margin-right: 0.5em;
+
+			a {
+				color: $grey70;
+				padding: 0.25em 0.5em;
+				display: inline-block;
+				border-radius: 3px;
+
+				&:hover {
+					background-color: darken( $grey15, 5% );
+				}
+			}
+
+			
+
+		}
+	}
+
+	li.current-menu-item a {
+				background-color: $grey50;
+				color: #fff;
+
+				&:hover {
+					background-color: $grey50;
+				}
+			}
+}
+
+
+.posted-on span {
+	margin-right: 1em;
+}

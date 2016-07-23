@@ -22,20 +22,15 @@ body {
 }
 
 hr {
-	height: 5px;
+	height: 4px;
 	background: $grey5;
 	border: none;
-	margin: 1em 0;	
+	margin: 1em 0;
 }
 
-
-a {
-	text-decoration: none;
-}
 
 a {
 	color: $orange;
-	text-decoration: none;
 		
 	&:hover {
 		color: $burgundy;
@@ -59,7 +54,8 @@ h5,
 h6 {
 
 	a {
-		color: $orange;	
+		color: $orange;
+		text-decoration: none;
 	}
 }
 
@@ -73,10 +69,6 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	font-weight: 800;
 	margin-bottom: 0.5em;
-}
-
-h3, h4, h5, h6 {
-	margin-bottom: 0.75em;
 }
 
 h1, .h1 {
@@ -166,10 +158,18 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
 
 
-.entry-meta {
+.entry-meta, p.caption, .posted-on, .tags-links {
 	color: $grey30;
 	font-style: italic;
 	margin-bottom: 1em;
+
+	a { 
+		color: $grey30;
+
+		&:hover {
+			color: $grey50;
+		}
+	}
 }
 
 

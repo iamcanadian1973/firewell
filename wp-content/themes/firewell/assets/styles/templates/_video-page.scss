@@ -1,0 +1,93 @@
+//--------------------------------------------------------------
+// Video Page Styles
+//--------------------------------------------------------------
+
+
+ul.video-grid {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	a {
+		background-color: $grey5;
+		border-radius: 5px;
+		margin-bottom: 1em;
+
+		
+
+		p { color: $grey70; }
+
+		&:hover {
+			background-color: $orange;
+
+			h3, p { color: #fff; }
+		}
+
+		&:hover img { opacity: 0.7; }
+
+		img {
+			width: 100%;
+			margin: 0;
+
+
+		}
+
+		div {
+			padding: 1em;
+
+			p:last-child { margin-bottom: 0; }
+		}
+
+		
+		}
+
+}
+
+@media (min-width: 30em) { 
+
+	ul.video-grid li {
+		display: inline-block;
+		vertical-align: top;
+		width: calc(48% - 0.5em);
+		margin-right: 1.5em;
+
+		&:nth-child(even) { margin-right: 0; }
+	}
+
+}
+
+
+
+@media (min-width: 40em) { 
+
+	ul.video-grid li {
+		width: calc(31% - 0.5em);
+
+		&:nth-child(even) { margin-right: 1.5em; }
+
+		&:nth-child(3n+3) { margin-right: 0; }
+	}
+
+}
+
+@media (min-width: 60em) { 
+
+	ul.video-grid li {
+		width: calc(23% - 0.5em);
+
+		&:nth-child(3n+3) { margin-right: 1.5em; }
+
+		&:nth-child(4n+4) { margin-right: 0; }
+	}
+
+}
+
+.single-video .posted-on {
+	margin-right: 1em;
+}
+
+.single-video .entry-meta {
+	display: inline-block;
+}
+
+

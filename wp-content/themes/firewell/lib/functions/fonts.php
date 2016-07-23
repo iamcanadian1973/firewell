@@ -3,13 +3,13 @@
 //* Enqueue Google fonts
 
 
-//add_action( 'wp_enqueue_scripts', 'kr_load_google_fonts' );
+add_action( 'wp_enqueue_scripts', 'kr_load_google_fonts' );
 
 function kr_load_google_fonts() {
 	
 	// change array as needed
 	$font_families = array(
-			'Work+Sans:200,400,300,500,600,700'
+			'Open+Sans:400,400i,600,600i,700,700i,800,800i'
 		);
 	
 	$query_args = array(

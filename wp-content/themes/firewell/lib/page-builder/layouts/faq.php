@@ -28,10 +28,10 @@ if( have_rows('faq') ):
         $question = get_sub_field('question');
 		
 		if( $question ) {
-			printf( '<h3 id="faq-%s">%s</h3>', $count, $question );
+			printf( '<h2 class="h4" id="faq-%s">%s</h2>', $count, $question );
 			print( '<div>' );
 			the_sub_field( 'answer' );
-			printf('<p><a class="faq-link" href="%s/#faq-%s">#</a></p>', get_permalink(), $count );
+			printf('<p><a class="faq-link" href="%s#faq-%s">#</a></p>', trailingslashit( get_permalink() ), $count );
 			print( '</div>' );
 			$count++;
 		}

@@ -1,0 +1,106 @@
+//--------------------------------------------------------------
+// FAQ Page Styles
+//--------------------------------------------------------------
+
+
+.section-faq {
+
+	.accordion h2 {
+
+		padding: 0.5em 0.5em 0 10px;
+		border-radius: 5px;
+
+		&:target {
+				animation: highlight 2.5s ease;
+			}
+
+		@keyframes highlight {
+		  0% { background-color: $grey5; }
+		  100% { background-color: transparent; }
+			}
+
+		}
+
+
+	.accordion h2 a {
+
+		position: relative;
+		margin-left: 30px;
+		display: block;
+
+		&:hover {
+				color: $orange;
+			}
+
+		&:focus {
+				color: $orange;
+			}
+
+		&:before {
+			position: absolute;
+			content: '+';
+			color: #fff;
+			padding: 0;
+			margin-left: -30px;
+			background-color: $orange;
+			text-align: center;
+			font-size: 17px;
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			top: 5px;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			height: 4px;
+			background: $grey5;
+			border: none;
+			margin: 0.75em 0;
+		}
+
+
+	}
+
+	.accordion h2.open a {
+
+		color: $grey70;
+
+		&:before {
+			content: '−';
+			background-color: $grey70;
+		}
+
+		&:after {
+			height: 0;
+		}
+	}
+
+	p {
+		margin-left: 40px;
+
+	}
+
+	p:last-of-type:after {
+		content: '';
+		display: block;
+		height: 4px;
+		background: $grey5;
+		border: none;
+		margin: 1em 0;
+
+	}
+
+	a.faq-link {
+		display: inline-block;
+		text-decoration: none;
+
+
+		&:after {
+			content: 'Link';
+			margin-left: 0.25em;
+		}
+	}
+
+}

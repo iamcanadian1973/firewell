@@ -77,7 +77,7 @@
 			}
 		}
 	
-		.close-btn {
+		a.close-btn {
 			color: #fff;
 			display: block;
 			opacity: .6;
@@ -87,6 +87,7 @@
 			line-height: 1;
 			position: relative;
 			padding-right: 2.5em;
+			text-decoration: none;
 
 
 			&:after {
