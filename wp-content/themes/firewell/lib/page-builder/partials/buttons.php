@@ -30,7 +30,7 @@ function get_cta_buttons( $raw = FALSE ) {
 	
 		endwhile;
 				
-		return sprintf('<div class="cta-buttons">%s</div></div>', $buttons );
+		return sprintf('<div class="cta-buttons">%s</div>', $buttons );
 		
 	endif;
 	
