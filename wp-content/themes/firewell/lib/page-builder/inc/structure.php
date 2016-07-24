@@ -27,25 +27,34 @@ function page_builder_get_content_blocks() {
 			// skip group open
 			if (strpos( $row_layout, 'group' ) === false ):
 			
-			printf( '<section %s>', page_builder_attr( 'section' ) );
+				// Is the page restricted? If so only show content blocks that are set to visible
+				if( !members_can_current_user_view_post( get_the_ID() ) ) {
+					
+					$visibility = get_sub_field( 'visibility' );
+					
+					if( $visibility == 'Members Only' )
+						break;
+				}
 				
-				do_action( 'page_builder_before_section' );
+				printf( '<section %s>', page_builder_attr( 'section' ) );
+					
+					do_action( 'page_builder_before_section' );
+					
+					print( '<div class="section-wrapper">' );
+						print( '<div class="section-container">' );	
 				
-				print( '<div class="section-wrapper">' );
-					print( '<div class="section-container">' );	
-			
-						do_action( 'page_builder_before_layout' );	
-				
-						call_user_func( "layout_{$row_layout}" );						
-				
-						do_action( 'page_builder_after_layout' );
-						
-					print( '</div>' );
-				print( '</div>' );	
-				
-				do_action( 'page_builder_after_section');				
-				
-			echo '</section>'; //* end section
+							do_action( 'page_builder_before_layout' );	
+					
+							call_user_func( "layout_{$row_layout}" );						
+					
+							do_action( 'page_builder_after_layout' );
+							
+						print( '</div>' );
+					print( '</div>' );	
+					
+					do_action( 'page_builder_after_section');				
+					
+				echo '</section>'; //* end section
 			
 			// skip group_close
 			endif;

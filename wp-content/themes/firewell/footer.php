@@ -12,6 +12,10 @@
 ?>
 
 	</div><!-- #content -->
+	
+	<?php
+	do_action( 'firewell_before_footer' );
+	?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		

@@ -3,3 +3,13 @@
 #categorychecklist #category-20 {
 	display: none!important;	
 }
+
+#postimagediv .inside img {
+   max-width:100%;
+   height:auto;
+   width:auto; /*this line has been added*/
+}
+
+#postimagediv .inside img[src$=".svg"] {
+   min-width: 200px;
+}

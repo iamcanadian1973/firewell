@@ -24,5 +24,10 @@
 	}
 	
 	
+	
+	// read only form fields
+	$("li.gf_readonly input").attr("readonly","readonly");
+	
+	
 })(jQuery);
 

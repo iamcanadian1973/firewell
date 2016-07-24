@@ -8,7 +8,7 @@ function my_add_excerpts_to_pages() {
 //add_action( 'init', 'my_add_excerpts_to_pages' );
 
 // Add additional image sizes
-//add_image_size( 'full-width-photo', 1900, 99999 );
+//add_image_size( 'video-thumbnail', 480, 250, true );
 //add_image_size( 'design-size', 720, 432, true ); 
 
 

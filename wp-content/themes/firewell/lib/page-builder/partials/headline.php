@@ -20,7 +20,7 @@ function get_headline() {
 		
 		$heading_size = pb_set_default_value( $heading_size, 'h2' );
 				
-		$headline = sprintf( '<%1$s class="section-title" itemprop="headline"><span>%2$s</span></%1$s>', $heading_size, $headline );
+		$headline = sprintf( '<%1$s class="section-title"><span>%2$s</span></%1$s>', $heading_size, $headline );
 		
 		if( $subheadline ) {
 			$subheadline = sprintf( '<h3>%s</h3>', $subheadline );

@@ -112,3 +112,17 @@ function admin_style() {
   wp_enqueue_style('firwell-admin-css', trailingslashit( CHILD_THEME_CSS ) . 'admin.css' );
 }
 add_action('admin_enqueue_scripts', 'admin_style');
+
+// Admin SVG fix to remove width & height
+function wg_fix_svg_size_attributes( $out, $id )
+{
+	$image_url  = wp_get_attachment_url( $id );
+	$file_ext   = pathinfo( $image_url, PATHINFO_EXTENSION );
+
+	if ( ! is_admin() || 'svg' !== $file_ext ){
+		return false;
+	}
+
+	return array( $image_url, null, null, false );
+}
+add_filter( 'image_downsize', 'wg_fix_svg_size_attributes', 10, 2 );
