@@ -77,3 +77,31 @@ function firewell_event_query( $query ) {
 	
 	}
 }
+
+
+function firewell_excerpt( $more = '<span class="meta-nav">&#8230;</span>', $show_read_more = true ) {
+	global $post;
+	$post_content = $post->post_content;
+    $post_excerpt = $post->post_excerpt;
+                    
+    if( strstr( $post_content,'<!--more-->') ) {
+        $content_arr = get_extended ( $post_content );
+		$excerpt = sprintf( '%s%s', $content_arr['main'], $more );
+    }
+    elseif( $post_excerpt ) {
+        $excerpt = sprintf( '%s%s', $post_excerpt, $more );
+    }
+    else {
+        $excerpt = wp_trim_words( $post_content, 40, $more );
+    }
+	
+	                    
+   	if( $show_read_more ) {
+		$out =  wpautop( sprintf( '%s <a href="%s">Read More</a>', $excerpt, get_permalink() ) );
+	}	
+	else {
+		$out =  wpautop( $excerpt );
+	}
+	
+	return $out;
+}

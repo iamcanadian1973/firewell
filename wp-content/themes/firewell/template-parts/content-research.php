@@ -37,8 +37,8 @@
 	</header><!-- .entry-header -->
 	
 	<?php
-		$thumbnail = get_the_post_thumbnail( get_the_ID(), 'research-thumbnail', '' );
-		$excerpt = wpautop( $post->post_excerpt );
+		$thumbnail = sprintf( '<a href="%s">%s</a>', get_permalink(), get_the_post_thumbnail( get_the_ID(), 'medium', '' ) );
+		$excerpt = firewell_excerpt( false, false );
 		$more_link = sprintf( '<a href="%s">read more</a>', get_permalink() );
 			
 		$pdf = get_post_meta( get_the_ID(), 'pdf', true );
@@ -49,19 +49,14 @@
 	?>
 	
 	<?php
-	if( is_single() ) :
+	if( is_single() )
 		printf( '<div class="excerpt">%s</div>',  $excerpt );
-	else : 
-		printf( '%s<div class="excerpt">%s%s</div>', $thumbnail, $excerpt, $more_link );
-	endif;		
 	?>
 
 
-	<?php
-	if( is_single() ) :
-	?>
-		<div class="entry-content">
+	<div class="entry-content">
 		<?php
+		if( is_single() ):
 						
 			$classes = !($pdf && $related_links && $tags ) ? ' full-width' : '';
 			printf( '<div class="columns%s"><!-- full-width class is used when there is no sidebar content-->', $classes );
@@ -73,10 +68,11 @@
 			print( '</div>' );
 				
 			// Show content sidebar if needed
-			if( $pdf || $related_links || $tags ) {
+			if( $pdf || $related_links || $tags ) :
 					
 				if( $pdf ) {
-					$pdf = sprintf( '<a href="%s">Download PDF</a>', $pdf );
+					$pdf = wp_get_attachment_url( $pdf );
+					$pdf = sprintf( '<a href="%s" target="_blank">Download PDF</a>', $pdf );
 				}
 					
 				if ( $tags ) {
@@ -85,14 +81,14 @@
 					
 				printf( '<div class="columns"><div class="content-sidebar">%s%s%s</div></div>', $pdf, $related_links, $tags );
 					
-			}
-	
+			endif;
+		else:
+			printf( '%s<div class="excerpt">%s%s</div>', $thumbnail, $excerpt, $more_link );
+ 		endif;
 		?>
 	</div><!-- .entry-content -->
 	
-	<?php
-	endif;
-	?>
+
 	
 	<?php
 	// view all and social share
