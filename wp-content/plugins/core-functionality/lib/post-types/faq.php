@@ -38,7 +38,7 @@ class FAQ_CPT extends CPT_Core {
 				'show_ui' 			 => true,
 				'show_in_menu' 		 => true,
 				'show_in_nav_menus'  => true,
-				'exclude_from_search' => false,
+				'exclude_from_search' => true,
 				'rewrite' => array('slug'=> 'faqs' ), 
 				'supports' => array( 'title', 'editor', 'page-attributes' ),
 				//'menu_icon' => 'dashicons-images-alt2' 
