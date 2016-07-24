@@ -2,3 +2,4 @@
 
 - Create Signup notes
 - Research team
+- finish Footer CTA
