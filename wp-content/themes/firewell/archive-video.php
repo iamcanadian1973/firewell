@@ -19,32 +19,29 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			// add teaser from the videos page
-			$videos_page_id = 101;
+			$heading = get_field( 'video_heading', 'option' );
+			$heading = $heading ? $heading : 'Videos';
+			$content = get_field( 'video_intro_text', 'option' );
 			
-			$args = array(
-					'post_type'      => 'page',
-					'posts_per_page' => 1,
-					'post_status'    => 'publish',
-					'p'          	 => $videos_page_id
-			);
-
-			// Use $loop, a custom variable we made up, so it doesn't overwrite anything
-			$loop = new WP_Query( $args );
-	
-			if( $loop->have_posts() ): 
-				while ( $loop->have_posts() ) : $loop->the_post();
-	
-					get_template_part( 'template-parts/content-page-builder', 'page' );
-	
-				endwhile; // End of the loop.
-				
-			endif;
+			$featured_video_id = get_field( 'featured_video', 'option' );
+			$featured_video = firewell_video( $featured_video_id );
 			
-			wp_reset_postdata();
+			// Show featured video to users not logged in
+			if( $featured_video && !firewell_is_member() ) {
+				$excerpt = firewell_excerpt( false, false );
+				$content .= sprintf( '<div class="featured-video"><div class="video-box">%s</div><div class="excerpt">%s</div></div>', $featured_video, $excerpt );
+			}
+			
+			printf( '<section class="section section-archive-description"><div class="section-wrapper"><div class="section-container"><header class="entry-header"><h2 class="section-title" itemprop="headline"><span>%s</span></h2></header><div class="entry-content">%s</div></div></div></section>', $heading, $content );
 			?>
 			
-			<?php if ( have_posts() ) : ?>
+			<?php
+			// let's make sure they're allowd to see the videos
+			if( !firewell_is_member() ) {
+				echo firewell_members_only_message();
+			}
+			
+			if ( have_posts() && firewell_is_member() ) : ?>
 				
 				<?php
 				$archive_link = get_post_type_archive_link( 'video' );
@@ -84,9 +81,10 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php						
-						$thumbnail = get_the_post_thumbnail( get_the_ID(), 'video-thumbnail' );
+						$thumbnail = get_the_post_thumbnail( get_the_ID(), 'medium' );
 						$title = the_title( '<h3>', '</h3>', FALSE );
-						$content = apply_filters( 'the_content', get_the_content() );
+						// get excerpt
+						$content = firewell_excerpt( false, false );
 						printf( '<li><a href="%s">%s<div>%s%s</div></a></li>',get_permalink(),$thumbnail,  $title, $content );
 					?>
 
@@ -95,7 +93,9 @@ get_header(); ?>
 				<?php
 				echo '</ul>';
 				?>
- 			<?php endif; ?>
+ 			<?php 
+			endif; 
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

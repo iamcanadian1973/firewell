@@ -26,23 +26,7 @@ get_header(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					
 					<?php
-					// video
-					$video_embed_code = get_post_meta( get_the_ID(), 'video_embed_code', true );
-					
-					if( $video_embed_code ) {
-						
-						$video_args = array(
-								'CR' => $video_embed_code,
-								'VW' => '100%',
-								'VH' => '100%'
-						); 
-						
-						$video_url = add_query_arg( $video_args, '//www.dartfish.tv/Embed.aspx?' );
-						
-						printf( '<div class="embed-container">
-								<iframe src="%s" frameborder="0" allowfullscreen="allowfullscreen">
-								</iframe></div>',$video_url );
-					}
+					echo firewell_video( get_the_ID() );
 					?>
 					
 					<header class="entry-header">
