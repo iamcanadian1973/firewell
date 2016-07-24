@@ -18,7 +18,12 @@
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
 
-		if ( 'post' === get_post_type() ) : ?>
+		if ( 'post' === get_post_type() ) : 
+		
+		if( is_single() ) {
+			the_post_thumbnail( 'large' );
+		}
+		?>
 		<div class="entry-meta">
 			<?php firewell_posted_on(); ?>
 		</div><!-- .entry-meta -->
@@ -28,24 +33,23 @@
 
 	<div class="entry-content">
 		<?php
-		global $post;
-		$post_excerpt = $post->post_excerpt;
-                    
-   		if( $post_excerpt ) {
-			$excerpt = wp_trim_words( $post_excerpt, 40, '<span class="meta-nav">&#8230;</span>');
-			echo wpautop( sprintf( '%s <a href="%s">Read More</a>', $excerpt, get_permalink() ) );
-		}
-                        
-		else {
-			the_content( '<span class="meta-nav">&#8230;</span> Read More' );
-		}
-		
 		// add event details
 		if( is_single() ) {
+			
+			//the_post_thumbnail( 'large' );
+			
+			the_content();
+			
 			$event_link = get_post_meta( get_the_ID(), 'event_link', true );
 			if( $event_link ) {
 				printf( '<p><a href="%s">Event Details</a></p>', $event_link );
 			}
+		}
+		else {
+			
+			$thumbnail = sprintf( '<a href="%s">%s</a>', get_permalink(), get_the_post_thumbnail( get_the_ID(), 'medium', '' ) );
+			$excerpt = firewell_excerpt();
+			printf( '%s<div class="excerpt">%s</div>', $thumbnail, $excerpt );	
 		}
 			
 
