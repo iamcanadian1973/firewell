@@ -5,14 +5,19 @@ add_action( 'firewell_before_footer', function() {
 	/*
 	Featured image/Content - CTA buttons and content visibility.
 	
-	pages
-	posts
-	Video Archive
-	Research Archive
-	videos
-	research
+	posts_archive : "News and Events" Archive
+	video_archive : "Videos" Post Type Archive
+	research_archive : "Research" Post Type Archive
+	single_video : Each Individual Video
+	single_research : Each Individual Research
+	single_post : Each Individual News / Event Post 
 	
 	*/
+	
+	// Where are we now?
+	$where = firewell_footer_cta_location();
+	global $post;
+	$post_id = $post->ID;
 	
 	
 	// arguments, adjust as needed
@@ -29,8 +34,26 @@ add_action( 'firewell_before_footer', function() {
 	// don't want to use $wp_query, use our custom variable instead.
 	if ( $loop->have_posts() ) : 
  		while ( $loop->have_posts() ) : $loop->the_post(); 
-
-			//echo get_footer_cta();
+			
+			$show = false;
+			
+			// TEMPLATES
+ 			$template = get_field( 'template' );			
+			if( is_array( $template ) && in_array( $where, $template ) ) {
+				$show = true;
+			}
+			
+			// PAGES
+			$page = get_field( 'page' );
+			
+			if( $where == 'page' ) {
+				if( is_array( $page ) && in_array( $post_id, $page ) ) {
+					$show = true;
+				}
+			}
+			
+			if( $show )
+				echo get_footer_cta();
 
 		endwhile;
  	endif;
@@ -40,6 +63,38 @@ add_action( 'firewell_before_footer', function() {
 	wp_reset_postdata();
 	
 });
+
+// Where are we?
+
+function firewell_footer_cta_location() {
+	
+	$where = '';
+	
+	if( is_home() || is_category() || is_tag() ) {
+		$where = 'posts_archive';
+	}
+	if( is_post_type_archive( 'research' ) || is_tax( 'research_category' ) || is_tax( 'research_tag' ) ) {
+		$where = 'research_archive';
+	}
+	else if( is_post_type_archive( 'video' ) || is_tax( 'video_category' ) || is_tax( 'video_tag' ) ) {
+		$where = 'video_archive';
+	}
+	else if( is_singular( 'research' ) ) {
+		$where = 'single_research';
+	}
+	else if( is_singular( 'video' ) ) {
+		$where = 'single_video';
+	}
+	else if( is_singular( 'post' ) ) {
+		$where = 'single_post';
+	}
+	else if( is_page() ) {
+		$where = 'page';
+	}
+	
+	return $where;
+	
+}
 
 
 function get_footer_cta() {
