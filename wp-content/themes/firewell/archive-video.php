@@ -82,7 +82,7 @@ get_header(); ?>
 
 					<?php						
 						$thumbnail = get_the_post_thumbnail( get_the_ID(), 'medium' );
-						$title = the_title( '<h3>', '</h3>', FALSE );
+						$title = the_title( '<h3 class="h4">', '</h3>', FALSE );
 						// get excerpt
 						$content = firewell_excerpt( false, false );
 						printf( '<li><a href="%s">%s<div>%s%s</div></a></li>',get_permalink(),$thumbnail,  $title, $content );
