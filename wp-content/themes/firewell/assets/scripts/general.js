@@ -26,7 +26,7 @@
 	
 	
 	// read only form fields
-	$("li.gf_readonly input").attr("readonly","readonly");
+	$("li.gf_readonly input").attr("readonly","readonly").attr("disabled","disabled");
 	
 	
 })(jQuery);
