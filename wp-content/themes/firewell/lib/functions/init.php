@@ -2,6 +2,7 @@
 // Include functions
 
 include_once( 'theme.php' );
+include_once( 'menus.php' );
 include_once( 'extras.php' );
 include_once( 'template-tags.php' );
 include_once( 'acf.php' );
