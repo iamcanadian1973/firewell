@@ -96,7 +96,15 @@ function firewell_user_info( $atts = '' ) {
 		$user = wp_get_current_user();
 		$detail = $a['value'];
 		return 	( isset( $user->{$detail} ) ) ? $user->{$detail} : 'User';
-	}	
+	}
+	
+	return 'User';	
 }
 
 add_shortcode( 'firewell_user_info', 'firewell_user_info' );
+
+
+function firewell_logout_url_shortcode() {
+	return sprintf('<a href="%s">Logout</a>', wp_logout_url( site_url() ) );
+}
+add_shortcode( 'bbp-logout', 'firewell_logout_url_shortcode' );
