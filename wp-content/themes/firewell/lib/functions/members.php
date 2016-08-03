@@ -85,3 +85,18 @@ function check_content_permission() {
 });
 
 
+function firewell_user_info( $atts = '' ) {
+	
+	$a = shortcode_atts( array(
+        'value' => 'user_firstname',
+    ), $atts );
+	
+	if( is_user_logged_in() ) {
+		// Hello [username]! My Account (link to profile) 
+		$user = wp_get_current_user();
+		$detail = $a['value'];
+		return 	( isset( $user->{$detail} ) ) ? $user->{$detail} : 'User';
+	}	
+}
+
+add_shortcode( 'firewell_user_info', 'firewell_user_info' );
