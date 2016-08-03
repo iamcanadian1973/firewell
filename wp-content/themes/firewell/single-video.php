@@ -49,7 +49,7 @@ get_header(); ?>
 						$pdf = get_post_meta( get_the_ID(), 'pdf', true );
 						
 						if( $pdf ) {
-							printf( '<p><a href="%s" target="_blank">%s</a></p>', $pdf, 'Download TEAM Feedback' );
+							printf( '<p><a href="%s" class="btn" target="_blank">%s</a></p>', $pdf, 'Download TEAM Feedback' );
 						}
 						
 						// Tags
