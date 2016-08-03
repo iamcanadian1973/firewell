@@ -21,3 +21,11 @@ function custom_mtypes( $m ){
     return $m;
 }
 add_filter( 'upload_mimes', 'custom_mtypes' );
+
+
+
+// remove unwanted archive details before title
+add_filter( 'get_the_archive_title', function ($title) {
+	// remove anyhting before the :, then remove the : then remove any left whitespace.
+    return ltrim( str_replace( ':', '', strstr($title, ':') ) );
+});
