@@ -35,8 +35,15 @@ firewell_site_overlay();
 	
 	<div class="before-header">
 		<?php
-		if ( is_active_sidebar( 'before-header' ) ) {
+		if( is_user_logged_in() ) {
+			// Hello [username]! My Account (link to profile) 
+			$user = wp_get_current_user();
+			$username = $user->user_firstname;
+			printf( '<p>Hello %s! <a href="%s" class="my-account">My Account</a> <a href="%s" class="logout">Logout</a></p>', $username, get_permalink( 610 ), wp_logout_url( get_permalink() ) );	
+		} else if ( is_active_sidebar( 'before-header' ) ) {
 			dynamic_sidebar( 'before-header' );
+		} else {
+			
 		}
 		?>
 	</div>
