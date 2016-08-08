@@ -72,7 +72,7 @@
 					
 				if( $pdf ) {
 					$pdf = wp_get_attachment_url( $pdf );
-					$pdf = sprintf( '<a href="%s" target="_blank">Download PDF</a>', $pdf );
+					$pdf = sprintf( '<a href="%s" class="btn" target="_blank">Download PDF</a>', $pdf );
 				}
 					
 				if ( $tags ) {
