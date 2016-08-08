@@ -39,7 +39,7 @@
 	<?php
 		$thumbnail = sprintf( '<a href="%s">%s</a>', get_permalink(), get_the_post_thumbnail( get_the_ID(), 'medium', '' ) );
 		$excerpt = firewell_excerpt( false, false );
-		$more_link = sprintf( '<a href="%s">read more</a>', get_permalink() );
+		$more_link = sprintf( '<a href="%s" class="btn">read more</a>', get_permalink() );
 			
 		$pdf = get_post_meta( get_the_ID(), 'pdf', true );
 			
