@@ -20,14 +20,17 @@
 
 		if ( 'post' === get_post_type() ) : 
 		
-		if( is_single() ) {
-			the_post_thumbnail( 'large' );
-		}
+		
 		?>
 		<div class="entry-meta">
 			<?php firewell_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
+		
+		if( is_single() ) {
+			the_post_thumbnail( 'large' );
+		}
+		
 		endif; ?>
 	</header><!-- .entry-header -->
 
