@@ -60,7 +60,7 @@ get_header(); ?>
 						}
 		
 						// View all
-						printf( '<div class="view-all"><a href="%s">View all</a></div>', get_post_type_archive_link( 'video' ) );
+						printf( '<div class="view-all"><a href="%s">View all Videos</a></div>', get_post_type_archive_link( 'video' ) );
 					?>
 										
 					</div><!-- .entry-content -->
