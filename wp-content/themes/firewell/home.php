@@ -24,39 +24,39 @@ get_header(); ?>
 		</header><!-- .page-header -->
 		
 		<?php
-		if ( have_posts() ) : ?>
-
-			<?php
 			
 			$archive_link = get_permalink( $posts_page_id );
-				$slug = '';
-				$term = is_tax() ? 
-						get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : 
-						FALSE;
-				
-				if ( ! is_wp_error( $term ) && !empty( $term ) ) {
-					$slug = $term->slug;
-				}
+			$slug = '';
+			$term = is_tax() ? 
+					get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : 
+					FALSE;
+			
+			if ( ! is_wp_error( $term ) && !empty( $term ) ) {
+				$slug = $term->slug;
+			}
 	
-				$current_term = $term ? $slug : '';
-				// menu
-				$tax = 'category';
-				$args = array( 'hide_empty' => false );
-				$terms = get_terms($tax, $args);
+			$current_term = $term ? $slug : '';
+			// menu
+			$tax = 'category';
+			$args = array( 'hide_empty' => false );
+			$terms = get_terms($tax, $args);
+			
+			if ( count( $terms ) ) {
 				
-				if ( count( $terms ) ) {
-					
-					$current = is_home() ? ' class="current-menu-item"' : '';
-					$out = sprintf( '<li%s><a href="%s">All News & Upcoming Events</a></li>', $current, $archive_link );
-					
-					foreach( $terms as $term ) {
-						$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';
-						$out .= sprintf( '<li%s><a href="%s">%s</a></li>', $current, get_term_link( $term, $tax ), $term->name );
-					}
-				  	
-					printf( '<div class="filter-by"><span>Filter By:</span><ul>%s</ul></div>', $out );
+				$current = is_home() ? ' class="current-menu-item"' : '';
+				$out = sprintf( '<li%s><a href="%s">All News & Upcoming Events</a></li>', $current, $archive_link );
+				
+				foreach( $terms as $term ) {
+					$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';
+					$out .= sprintf( '<li%s><a href="%s">%s</a></li>', $current, get_term_link( $term, $tax ), $term->name );
 				}
-			?>
+				
+				printf( '<div class="filter-by"><span>Filter By:</span><ul>%s</ul></div>', $out );
+			}
+		?>
+		
+		<?php
+		if ( have_posts() ) : ?>
 			
 			<?php
 			/* Start the Loop */

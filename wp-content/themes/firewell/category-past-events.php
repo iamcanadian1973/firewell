@@ -51,31 +51,30 @@ get_header(); ?>
 		
 		global $wp_query;
 		$wp_query = new WP_Query( $args );
+					
+		$archive_link = get_permalink( $posts_page_id );
+		$slug = 'past-events';
+		
+		$current_term = $slug;
+		// menu
+		$tax = 'category';
+		$args = array( 'hide_empty' => false );
+		$terms = get_terms($tax, $args);
+		
+		if ( count( $terms ) ) {
+			$out = sprintf( '<li><a href="%s">All News & Upcoming Events</a></li>', $archive_link );
+			
+			foreach( $terms as $term ) {
+				$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';
+				$out .= sprintf( '<li%s><a href="%s">%s</a></li>', $current, get_term_link( $term, $tax ), $term->name );
+			}
+			
+			printf( '<div class="filter-by"><span>Filter By:</span><ul>%s</ul></div>', $out );
+		}
 	
 		if ( have_posts() ) : ?>
 
-			<?php
 			
-			$archive_link = get_permalink( $posts_page_id );
-				$slug = 'past-events';
-				
-				$current_term = $slug;
-				// menu
-				$tax = 'category';
-				$args = array( 'hide_empty' => false );
-				$terms = get_terms($tax, $args);
-				
-				if ( count( $terms ) ) {
-					$out = sprintf( '<li><a href="%s">All News & Upcoming Events</a></li>', $archive_link );
-					
-					foreach( $terms as $term ) {
-						$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';
-						$out .= sprintf( '<li%s><a href="%s">%s</a></li>', $current, get_term_link( $term, $tax ), $term->name );
-					}
-				  	
-					printf( '<div class="filter-by"><span>Filter By:</span><ul>%s</ul></div>', $out );
-				}
-			?>
 			
 			<?php
 			/* Start the Loop */
