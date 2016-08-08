@@ -34,3 +34,5 @@ wp-content/themes/*
 **/.codekit-cache/**
 **/config.codekit
 **/dwsync.xml
+**/style.css/**
+/wp-content/themes/firewell/assets/styles/style.css
