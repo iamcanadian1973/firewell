@@ -29,3 +29,10 @@ add_filter( 'get_the_archive_title', function ($title) {
 	// remove anyhting before the :, then remove the : then remove any left whitespace.
     return ltrim( str_replace( ':', '', strstr($title, ':') ) );
 });
+
+
+// TablePress
+add_filter( 'tablepress_table_output', 'tablepress_add_div_wrapper', 10, 3 ); 
+function tablepress_add_div_wrapper( $output, $table, $options ) { 
+	$output = '<div class="table-responsive">' . $output . '</div>'; return $output; 
+}
