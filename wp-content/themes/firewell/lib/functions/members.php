@@ -38,7 +38,7 @@ function firewell_is_member() {
  */
 function firewell_members_only_message() {
 	
-	$message = get_field( 'members_only_message', 'options' );
+	$message = members_get_setting( 'content_permissions_error' );
 	
 	if( $message ) {
 		return sprintf( '<div class="members-access-error">%s</div>', $message );
