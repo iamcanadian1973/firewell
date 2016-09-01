@@ -22,3 +22,5 @@ include_once( 'gravity-forms.php' );
 include_once( 'videos.php' );
 
 include_once( 'footer_cta.php' );
+
+include_once( 'bbpress.php' );

@@ -1,7 +1,4 @@
 <?php
-
-// https://multiplestates.wordpress.com/2016/01/06/scheduling-a-category-change-based-on-an-advanced-custom-field-value-when-a-post-is-saved-using-a-wordpress-cron-job/
-
 if( ! function_exists( 'fix_no_editor_on_posts_page' ) ) {
 
     /**
