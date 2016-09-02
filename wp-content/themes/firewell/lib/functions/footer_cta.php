@@ -52,6 +52,15 @@ add_action( 'firewell_before_footer', function() {
 				}
 			}
 			
+			$visibility = strtolower( str_replace( ' ', '_', get_field( 'visibility' ) ) );
+						
+			
+			// is this for members only?
+			if( ( $visibility == 'members_only' ) && !firewell_is_member() ) {
+				$show = false;
+			}
+			
+			
 			if( $show )
 				echo get_footer_cta();
 
