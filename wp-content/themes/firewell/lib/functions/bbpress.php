@@ -82,4 +82,4 @@ function redirect_login($redirect_to, $url, $user) {
     
 }
 
-add_action('login_redirect', 'redirect_login', 10, 3);
+//add_action('login_redirect', 'redirect_login', 10, 3);

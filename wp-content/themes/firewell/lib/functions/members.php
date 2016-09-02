@@ -10,7 +10,7 @@ function firewell_login_redirect( $redirect_to, $request, $user  ) {
 	return ( is_array( $user->roles ) && in_array( 'administrator', $user->roles ) ) ? admin_url() : site_url();
 }
 
-add_filter( 'login_redirect', 'firewell_login_redirect', 10, 3 );
+//add_filter( 'login_redirect', 'firewell_login_redirect', 10, 3 );
 
 /**
  * Get current user role
