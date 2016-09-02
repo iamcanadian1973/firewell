@@ -18,40 +18,11 @@ get_header(); ?>
 			$posts_page_id = get_option( 'page_for_posts');
 			printf( '<h1 class="page-title">%s</h1>', get_the_title( $posts_page_id ) );
 			echo get_post_field( 'post_content', $posts_page_id );
-			
 		?>
 		</header><!-- .page-header -->
 		
 		<?php
-		$meta_query = array(
-			'relation' => 'AND',
-			array(
-				'key' => 'event_end_date',
-				'value' => (int) date( 'Ymd' ),
-				'compare' => '<'
-			),
-			array(
-				'key' => 'event_start_date',
-				'compare' => '!=',
-				'value' => ''
-			)
-		);
-	   
-		$args = array(
-		'post_type' => 'post',
-		//'posts_per_page' => 1,
-		'orderby' => 'meta_value_num',
-		'order'  => 'DESC',
-		'cat'    => 19,
-		'meta_query'  => $meta_query,
-		'meta_key'  => 'event_start_date',
-		'paged'          => get_query_var( 'paged' )
-		
-		);
-		
-		global $wp_query;
-		$wp_query = new WP_Query( $args );
-					
+	
 		$archive_link = get_permalink( $posts_page_id );
 		$slug = 'past-events';
 		
@@ -76,29 +47,33 @@ get_header(); ?>
 
 			
 			
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			<?php /* Start the Loop */ ?>
+			<div class="load-more-wrapper">
+         		<div class="load-more-container">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				<?php while ( have_posts() ) : the_post(); ?>
 
-			endwhile;
+					<?php						
+						get_template_part( 'template-parts/content', get_post_format() );
+					?>
 
-			the_posts_navigation();
-
+				<?php endwhile; ?>
+				
+				</div>
+				 <div class="clear"></div>
+				 <?php
+					the_posts_navigation();
+					
+					firewell_load_more();
+				?>
+			  	</div>
+		<?php
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; 
 		
-		
-		wp_reset_query();
 		?>
 
 		</main><!-- #main -->
