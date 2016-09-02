@@ -36,14 +36,13 @@ get_header(); ?>
 			?>
 			
 			<?php
+			
 			// let's make sure they're allowd to see the videos
 			if( !firewell_is_member() ) {
 				echo firewell_members_only_message();
 			}
-			
-			if ( have_posts() && firewell_is_member() ) : ?>
-				
-				<?php
+			else {
+				// Show the categories
 				$archive_link = get_post_type_archive_link( 'video' );
 				$slug = '';
 				$term = is_tax() ? 
@@ -70,14 +69,19 @@ get_header(); ?>
 					}
 				  	
 					printf( '<div class="filter-by"><span>Filter By:</span><ul>%s</ul></div>', $out );
-				}
-								
-				?>
+				}	
+			}
+			
+			if ( have_posts() && firewell_is_member() ) : ?>
+				
 				
 				<?php /* Start the Loop */ ?>
+				
  				<?php
-				printf( '<ul %s>', 'class="video-grid"' );
+				printf( '<div %s>', 'class="video-grid"' );
 				?>
+				<div class="load-more-wrapper">
+         		<div class="load-more-container">
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php						
@@ -85,13 +89,21 @@ get_header(); ?>
 						$title = the_title( '<h3 class="h4">', '</h3>', FALSE );
 						// get excerpt
 						$content = firewell_excerpt( false, false );
-						printf( '<li><a href="%s">%s<div>%s%s</div></a></li>',get_permalink(),$thumbnail,  $title, $content );
+						printf( '<div class="column"><a href="%s">%s<div>%s%s</div></a></div>', get_permalink(), $thumbnail,  $title, $content );
 					?>
 
 				<?php endwhile; ?>
-
+								</div>
+				 <div class="clear"></div>
+				 <?php
+					the_posts_navigation();
+					
+					firewell_load_more();
+				?>
+			  	</div>
+				
 				<?php
-				echo '</ul>';
+				echo '</div>';
 				?>
  			<?php 
 			endif; 

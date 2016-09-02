@@ -21,6 +21,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 				
 				<?php
+ 				
 				$archive_link = get_post_type_archive_link( 'research' );
 				$slug = '';
 				$term = is_tax() ? 
@@ -52,6 +53,9 @@ get_header(); ?>
 				?>
 				
 				<?php /* Start the Loop */ ?>
+				
+				<div class="load-more-wrapper">
+         		<div class="load-more-container">
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -61,11 +65,20 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 				
-				<?php
-				the_posts_navigation();
+				</div>
+				 <div class="clear"></div>
+				 <?php
+					the_posts_navigation();
+					
+					firewell_load_more();
 				?>
+			  	</div>
+				
+				
 
  			<?php endif; ?>
+			
+			
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
