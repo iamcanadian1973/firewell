@@ -51,7 +51,8 @@ class Footer_CTA_CPT extends CPT_Core {
 
 
 	public function filter_cpt_archive( $query ){
-		if( !is_admin() && $query->is_main_query() && ( is_post_type_archive( $this->post_type ) || is_tax( $this->taxonomies ) ) ) {
+		
+		if( !is_admin() && $query->is_main_query() && ( is_post_type_archive( $this->post_type ) ) ) {
 			
 			$query->set( 'orderby', 'menu_order' );
 			$query->set( 'order', 'ASC' );
