@@ -232,7 +232,7 @@ function firewell_event_query( $query ) {
 					
 			$query->set( 'orderby', 'meta_value_num' );
 			$query->set( 'order', 'DESC' );
-			$query->set( 'meta_query', $meta_query );
+			//$query->set( 'meta_query', $meta_query );
 			$query->set( 'meta_key', 'event_start_date' );
 		}
 	
