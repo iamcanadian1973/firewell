@@ -18,13 +18,40 @@ function layout_recent_posts() {
  
  
  function firewell_recent_posts( $post_type, $number_of_posts ) {
-		
-		// arguments, adjust as needed
+	
+	
+	// arguments, adjust as needed
 	$args = array(
 		'post_type'      => $post_type,
-		'posts_per_page' => $number_of_posts,
 		'post_status'    => 'publish',
  	);
+	
+	if( $post_type == 'post' ) {
+		$args['orderby'] = 'meta_value date';
+		$args['meta_key'] = 'event_start_date';
+		$args['meta_type'] = 'DATE date';
+		$args['cat'] = '-20 date';
+	}
+	
+	
+	$sticky_posts = get_option( 'sticky_posts' );
+	
+	
+	
+	if (is_array($sticky_posts) ) {
+
+        // counnt the number of sticky posts
+        $sticky_count = count($sticky_posts);
+		
+        // and if the number of sticky posts is less than
+        // the number we want to set:
+        if ($sticky_count < $number_of_posts ) {
+            $args['posts_per_page'] = $number_of_posts - $sticky_count;
+		}
+		else {
+			$args['post__in'] = get_option('sticky_posts');
+		}
+	}
 	
 	// Use $loop, a custom variable we made up, so it doesn't overwrite anything
 	$loop = new WP_Query( $args );
