@@ -45,7 +45,7 @@
 			
 			$event_link = get_post_meta( get_the_ID(), 'event_link', true );
 			if( $event_link ) {
-				printf( '<p><a href="%s">Event Details</a></p>', $event_link );
+				printf( '<p><a href="%s" class="event-details">Event Details</a></p>', $event_link );
 			}
 		}
 		else {
