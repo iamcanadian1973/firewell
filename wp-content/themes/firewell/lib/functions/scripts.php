@@ -7,7 +7,6 @@ function load_theme_stylesheet() {
     $version = '1.0';
 	wp_enqueue_style( $handle, trailingslashit( CHILD_THEME_CSS ) . 'style.css', false, $version );
 	
-	wp_enqueue_style( 'hack', trailingslashit( CHILD_THEME_CSS ) . 'hack.css', false, $version );
 }
 add_action( 'wp_enqueue_scripts', 'load_theme_stylesheet' );
 
