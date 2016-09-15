@@ -108,3 +108,11 @@ function firewell_logout_url_shortcode() {
 	return sprintf('<a href="%s">Logout</a>', wp_logout_url( site_url() ) );
 }
 add_shortcode( 'bbp-logout', 'firewell_logout_url_shortcode' );
+
+
+add_shortcode( 'firewell_show_members_only_message', 'firewell_show_members_only_message' );
+
+function firewell_show_members_only_message() {
+	if( !is_user_logged_in() )
+		return firewell_members_only_message();	
+}
