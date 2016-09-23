@@ -113,6 +113,14 @@ function admin_style() {
 }
 add_action('admin_enqueue_scripts', 'admin_style');
 
+
+// Login Styles
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', trailingslashit( CHILD_THEME_CSS ) . '/login.css' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+
 // Admin SVG fix to remove width & height
 function wg_fix_svg_size_attributes( $out, $id )
 {
