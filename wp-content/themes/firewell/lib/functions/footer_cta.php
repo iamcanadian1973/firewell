@@ -52,6 +52,12 @@ add_action( 'firewell_before_footer', function() {
 				}
 			}
 			
+			/*
+			
+			TODO: Only show one
+			
+			
+			*/
 			$visibility = strtolower( str_replace( ' ', '_', get_field( 'visibility' ) ) );
 						
 			
@@ -61,8 +67,9 @@ add_action( 'firewell_before_footer', function() {
 			}
 			
 			
-			if( $show )
+			if( $show ) {
 				echo get_footer_cta();
+ 			}
 
 		endwhile;
  	endif;
