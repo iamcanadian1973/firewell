@@ -31,9 +31,11 @@ get_header(); ?>
 		$tax = 'category';
 		$args = array( 'hide_empty' => false );
 		$terms = get_terms($tax, $args);
+		$out = '';
 		
 		if ( count( $terms ) ) {
-			$out = sprintf( '<li><a href="%s">All News & Upcoming Events</a></li>', $archive_link );
+			
+			//$out = sprintf( '<li><a href="%s">All News & Upcoming Events</a></li>', $archive_link );
 			
 			foreach( $terms as $term ) {
 				$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';

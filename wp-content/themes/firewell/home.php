@@ -7,6 +7,10 @@
  * @package Firewell
  */
 
+// redirect to News category
+wp_redirect( get_category_link(1) );
+exit;
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -43,8 +47,8 @@ get_header(); ?>
 			
 			if ( count( $terms ) ) {
 				
-				$current = is_home() ? ' class="current-menu-item"' : '';
-				$out = sprintf( '<li%s><a href="%s">All News & Upcoming Events</a></li>', $current, $archive_link );
+				//$current = is_home() ? ' class="current-menu-item"' : '';
+				//$out = sprintf( '<li%s><a href="%s">All News & Upcoming Events</a></li>', $current, $archive_link );
 				
 				foreach( $terms as $term ) {
 					$current = $term->slug == $current_term ? ' class="current-menu-item"' : '';
