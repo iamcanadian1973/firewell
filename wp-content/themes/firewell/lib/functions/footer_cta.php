@@ -2,7 +2,7 @@
 
 add_action( 'firewell_before_footer', function() {
 	
-	/*
+ 	/*
 	Featured image/Content - CTA buttons and content visibility.
 	
 	posts_archive : "News and Events" Archive
@@ -17,7 +17,10 @@ add_action( 'firewell_before_footer', function() {
 	// Where are we now?
 	$where = firewell_footer_cta_location();
 	global $post;
-	$post_id = $post->ID;
+	$post_id = '';
+	
+	if( is_singular() )
+		$post_id = $post->ID;
 	
 	
 	// arguments, adjust as needed
