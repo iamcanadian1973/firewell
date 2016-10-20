@@ -68,16 +68,17 @@ function check_content_permission() {
  *
  * @since 	1.0
  */
+
+
  add_action( 'page_builder_after_while', function() {
+		
+	global $show_members_only_content_message;
 		
 	// Is the page restricted? If so only show content blocks that are set to visible
 	if( !members_can_current_user_view_post( get_the_ID() ) ) {
-		
-		$visibility = get_sub_field( 'visibility' );
-		
-		if( $visibility == 'Members Only' ){
-			$message = members_get_setting( 'content_permissions_error' );	
-			printf( '<div class="section">%s</div>', $message );
+				
+		if( $show_members_only_content_message ){
+			echo firewell_members_only_message();
 		}
 			
 	}
