@@ -64,6 +64,11 @@
 			the_post_thumbnail( 'large' );
 				
 			the_content();
+			
+			// footnotes
+			$foot_notes = get_field( 'foot_notes' );
+			if( $foot_notes )
+				printf( '<div class="foot-notes">%s</div>', $foot_notes );
 				
 			print( '</div>' );
 				
